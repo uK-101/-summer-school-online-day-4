@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-4</title>
+</head>
+<body>
+    <script>
+        //1st Task: Variables and data types
+
+        let string = "Hello! This is a string";
+        console.log(string + " has type" + typeof(string));
+        
+        const num = 7;
+        console.log(num + " has type" + typeof(num));
+
+        var myBoolean = true;
+        console.log(myBoolean + " has type" + typeof(myBoolean));
+        
+        let myUndefined = undefined;
+        console.log(myUndefined + " has type" + typeof(myUndefined));
+
+        const nothing = null;
+        console.log(nothing + " has type" + typeof(nothing));
+        
+        //2nd Task: Hoisting Demo
+
+        console.log(variable); // prints undefined
+        var variable = "Hoisting Demo ";
+        // variables declared with var are hoisted to the top. Thus we dont get a reference error here but the output will be undefined.Hoisting is not a feature it is basically inability of javascript to let variables declared with 'var' at the top without being declared first
+
+        // console.log(variable2) 
+        // the above console.log will give a reference error because variables declared with 'let' keyword don't support hoisting thus accessing the variable declared with 'let' gives a reference Error which is not the case with var
+        let variable2 = "Hoisting Demo- 2";
+
+        //3rd Task: User greetings(Conditionals) 
+        let name = prompt("Enter your name");
+        let age = Number(prompt("Enter your age")); // converts the string in number also we could have used parseInt
+
+        if(age < 18) {
+            alert(`Hey ${name} you are a teen!`);
+        }
+        else if(age >= 18 && age <= 60) {
+            alert(`Welcome ${name} you are an adult!`);
+        }
+        else {
+            alert(`Hello ${name} you are a senior citizen!`);
+        }
+
+        //4th Task: Looping Numbers
+        console.log("1 to 10 using for loop");
+        for(let i = 1; i <= 10; i++) {
+            console.log(i);
+        }
+
+        console.log("Even numbers from 2 to 20 using while loop");
+        let i = 2;
+        while(i <= 20) {
+            console.log(i);
+            i+=2;
+        }
+
+        console.log("10 to 1 using do while loop");
+        let j = 10;
+        do {
+            console.log(j);
+            j--;
+        }while(j >=1);
+
+        //5th Task: Functions
+
+        function add(a, b) {
+            return a + b;
+        }
+
+        const square = function(num) {
+            return num*num;
+        }
+
+        const greet = (name) => console.log(`Welcome ${name} to this world`);
+
+        console.log("Sum is: ", add(12,35));
+        console.log("Square is:", square(43));
+        greet("Janhavi");
+
+        //6th Task: Callback practice
+        
+        function processNumber(num, callback) {
+            callback(num);
+        }
+
+        function sqRtNum(num) {
+            console.log("Square root of number is: ", Math.sqrt(num).toFixed(3));
+        }
+
+        processNumber(21, sqRtNum);
+        processNumber(36, sqRtNum);
+
+
+        //Bonus Task: Mini calculator Project
+
+        let num1 = parseFloat(prompt("Enter your first number: "));
+        let num2 = parseFloat(prompt("Enter your second number: "));
+        let operation = prompt("Enter the operation you want to do: \n + , - , / , * ");
+        let result ;
+
+        switch(operation) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '/':
+                if(num2 == 0) {
+                    alert("Divide by zero error!");
+                    result = undefined;
+                }
+                else {
+                    result = num1 / num2;
+                }
+                break;
+            case '*':
+                result = num1*num2;
+                break;
+            default: 
+                alert("You have choosen an invalid operation");
+                result = undefined;
+                break;
+        }
+
+        if(result != undefined) {
+            alert(`${num1} ${operation} ${num2} = ${result}`);
+        }
+
+    </script>
+</body>
+</html>
